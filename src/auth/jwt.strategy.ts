@@ -14,10 +14,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
             ignoreExpiration:false,
             secretOrKey:jwtConstants.secret
         })
-        console.log("toeknnnn",{"jwtConstants.secret":jwtConstants.secret})
     }
 
     async validate(payload: any) {
+        console.log("validate - validate" , payload);
+        
         return { id: payload.sub, email: payload.email }
     }
 }
